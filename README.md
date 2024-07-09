@@ -1,9 +1,9 @@
 # Project Title
-Expense Tracker
+SpendSavvy
 
 ## Overview
 
-Expense Tracker is a user-friendly application designed to help individuals track their income and expenses. It provides an intuitive interface for users to record, view, and manage their financial transactions, offering insights into their financial health through various visualizations and summaries.
+SpendSavvy is a user-friendly application designed to help individuals track their income and expenses. It provides an intuitive interface for users to record, view, and manage their financial transactions, offering insights into their financial health through various visualizations and summaries.
 
 ### Problem
 
@@ -42,13 +42,19 @@ Managing personal finances can be challenging without a systematic approach. Man
 
 ### Tech Stack
 
-- React
-- TypeScript
-- Express
+- Frontend:
+    - React
+    - TypeScript
+    - Chart.js (for line graph)
+
+- Backend: 
+    - Express
+
 - Client libraries: 
     - react
     - react-router
     - axios
+
 - Server libraries:
     - MongoDB
     - express
@@ -71,19 +77,19 @@ Managing personal finances can be challenging without a systematic approach. Man
 ### Mockups
 
 #### Login Page
-![](client/Mockup/Login.png)
+![](mockup/Login.png)
 
 #### Registration Page
-![](client/Mockup/Registration.png)
+![](mockup/Registration.png)
 
 #### Dasboard Page
-![](client/Mockup/Dashboard.png)
+![](mockup/Dashboard.png)
 
 #### Income Page
-![](client/Mockup/Income.png)
+![](mockup/Income.png)
 
 #### Expense Page
-![](client/Mockup/Expense.png)
+![](mockup/Expense.png)
 
 ### Data
 
@@ -116,6 +122,10 @@ Managing personal finances can be challenging without a systematic approach. Man
     - category	
     - description	
     - created_at
+
+### Data Visualization
+
+- Chart.js will be used to create a line graph for income vs. expense comparison on the dashboard.
 
 ### Endpoints
 
