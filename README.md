@@ -44,7 +44,7 @@ Managing personal finances can be challenging without a systematic approach. Man
 
 - Frontend:
     - React
-    - TypeScript
+    - JavaScript
     - Chart.js (for line graph)
 
 - Backend: 
