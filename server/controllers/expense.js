@@ -1,5 +1,5 @@
 import ExpenseModel from '../models/ExpenseModel.js';
-import UserModel from '../models/UserSignup.js';
+import UserModel from '../models/UserModel.js';
 
 export const addExpense = async (req, res) => {
     const { title, amount, date, category, description, user } = req.body;
@@ -35,6 +35,17 @@ export const addExpense = async (req, res) => {
         res.status(200).json({ message: 'Expense Added!', expense: newExpense });
     } catch (error) {
         res.status(500).json({ message: 'Server Error!', error: error.message });
+    }
+};
+
+export const getExpense = async (req,res) => {
+    const { userId } = req.params;
+
+    try {
+        const expenses = await ExpenseModel.find({ user: userId }).sort({createdAt: -1});
+        res.status(200).json(expenses);
+    } catch (error) {
+        res.status(500).json({message: 'Server Error!'});
     }
 };
 

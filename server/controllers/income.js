@@ -1,5 +1,5 @@
 import IncomeModel from '../models/IncomeModel.js';
-import UserModel from '../models/UserSignup.js';
+import UserModel from '../models/UserModel.js';
 
 export const addIncome = async (req, res) => {
     const { title, amount, date, category, description, user } = req.body;
