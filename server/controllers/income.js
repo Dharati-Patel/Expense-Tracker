@@ -30,5 +30,15 @@ export const addIncome = async (req,res) => {
         } catch (error) {
             res.status(500).json({message: 'Server Error!'});
         }
-    }
+    };
 
+export const getIncome = async (req,res) => {
+    const { userId } = req.params;
+
+    try {
+        const incomes = await IncomeModel.find({ user: userId }).sort({createdAt: -1});
+        res.status(200).json(incomes);
+    } catch (error) {
+        res.status(500).json({message: 'Server Error!'});
+    }
+};
