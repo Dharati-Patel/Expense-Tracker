@@ -42,3 +42,17 @@ export const getIncome = async (req,res) => {
         res.status(500).json({message: 'Server Error!'});
     }
 };
+
+export const delIncome = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const income = await IncomeModel.findByIdAndDelete(id);
+        if (!income) {
+            return res.status(404).json({ message: 'Income not found!' });
+        }
+        res.status(200).json({ message: 'Income Deleted!' });
+    } catch (err) {
+        res.status(500).json({ message: 'Server Error!' });
+    }
+};
