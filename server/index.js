@@ -2,8 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import Data from './Data/Data.js';
-import userRouter from './routes/register.js';
-import transRouter from './routes/transactions.js';
+import userRouter from './routes/UserRoute.js';
+import IncomeRouter from './routes/IncomeRoute.js';
+import ExpenseRouter from './routes/ExpenseRoute.js';
 
 
 const port = process.env.PORT || 8080;
@@ -13,7 +14,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api', userRouter);
-app.use('/api', transRouter);
+app.use('/api', IncomeRouter);
+app.use('/api', ExpenseRouter)
 
 Data()
 app.listen(port, () => {

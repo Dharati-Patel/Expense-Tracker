@@ -1,7 +1,7 @@
-import IncomeModel from '../models/IncomeModel.js';
+import ExpenseModel from '../models/ExpenseModel.js';
 import UserModel from '../models/UserSignup.js';
 
-export const addIncome = async (req, res) => {
+export const addExpense = async (req, res) => {
     const { title, amount, date, category, description, user } = req.body;
 
     try {
@@ -10,7 +10,7 @@ export const addIncome = async (req, res) => {
             return res.status(404).json({ message: 'User not found!' });
         }
 
-        const newIncome = new IncomeModel({
+        const newExpense = new ExpenseModel({
             title,
             amount,
             date,
@@ -31,34 +31,11 @@ export const addIncome = async (req, res) => {
             return res.status(400).json({ message: 'Amount must be a positive number!' });
         }
 
-        await newIncome.save();
-        res.status(200).json({ message: 'Income Added!', income: newIncome });
+        await newExpense.save();
+        res.status(200).json({ message: 'Expense Added!', expense: newExpense });
     } catch (error) {
         res.status(500).json({ message: 'Server Error!', error: error.message });
     }
 };
 
-export const getIncome = async (req,res) => {
-    const { userId } = req.params;
 
-    try {
-        const incomes = await IncomeModel.find({ user: userId }).sort({createdAt: -1});
-        res.status(200).json(incomes);
-    } catch (error) {
-        res.status(500).json({message: 'Server Error!'});
-    }
-};
-
-export const delIncome = async (req, res) => {
-    const { id } = req.params;
-
-    try {
-        const income = await IncomeModel.findByIdAndDelete(id);
-        if (!income) {
-            return res.status(404).json({ message: 'Income not found!' });
-        }
-        res.status(200).json({ message: 'Income Deleted!' });
-    } catch (err) {
-        res.status(500).json({ message: 'Server Error!' });
-    }
-};
