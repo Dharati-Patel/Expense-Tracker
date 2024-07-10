@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/register" element={<Signup />}/>
           <Route path="/login" element={<Login />}/>
+          <Route path="/dashboard" element={<Dashboard />}/>
         </Routes>
       </BrowserRouter>
     </>

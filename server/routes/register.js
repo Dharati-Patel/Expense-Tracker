@@ -3,6 +3,25 @@ import UserModel from "../models/UserSignup.js";
 
 const userRouter = express.Router();
 
+userRouter.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const user = await UserModel.findOne({ email: email });
+        if (user) {
+            if (user.password === password) {
+                res.json("Success");
+            } else {
+                res.json("The password is incorrect!");
+            }
+        } else {
+            res.json("No record found!");
+        }
+    } catch (err) {
+        res.json(err);
+    }
+});
+
+
 userRouter.post('/register', async (req, res) => {
     try {
         const users = await UserModel.create(req.body);
