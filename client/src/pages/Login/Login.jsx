@@ -15,7 +15,9 @@ const Login = () => {
         try {
             const result = await axios.post('http://localhost:8080/api/login', { email, password });
             console.log(result);
-            if(result.data === 'Success') {
+            if(result.data.message === 'Success') {
+                const userId = result.data.userId;
+                localStorage.setItem('userId', result.data.userId);
                 navigate('/dashboard');
             }
         } catch (err) {

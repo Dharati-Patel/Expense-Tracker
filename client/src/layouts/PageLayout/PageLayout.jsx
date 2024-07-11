@@ -16,6 +16,8 @@ const PageLayout = () => {
                 return <Income />
             case 3: 
                 return <Expense />
+            default: 
+                return <Dashboard />
         }
     }
 
