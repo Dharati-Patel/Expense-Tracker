@@ -3,47 +3,50 @@ import './Expense.scss';
 import axios from 'axios';
 import IncomeItem from '../../components/IncomeItem/IncomeItem';
 import ExpenseForm from '../../components/ExpenseForm/ExpenseForm';
+import Chart from '../../components/Chart/Chart';
+import { useGlobalContext } from '../../components/GlobalContext/GlobalContext';
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
 const Expense = () => {
-    
-    const [expenses, setExpenses] = useState([]);
-    const [error, setError] = useState(null);
-    const userId = localStorage.getItem('userId');
+    const {addExpense, getExpense, expenses, deleteExpense, totalExpense} = useGlobalContext();
+    const [error, setError] = useState([null]);
+//    const [expenses, setExpenses] = useState([]);
+//     const [error, setError] = useState(null);
+//     const userId = localStorage.getItem('userId');
 
-    const addExpense = async (expense) => {
-        try {
-            const response = await axios.post('http://localhost:8080/api/add-expense', expense);
-            console.log(response.data); 
-        } catch (err) {
-            setError(err.response.data.message);
-        }
-        getExpense()
-    }
+    // const addExpense = async (expense) => {
+    //     try {
+    //         const response = await axios.post('http://localhost:8080/api/add-expense', expense);
+    //         console.log(response.data); 
+    //     } catch (err) {
+    //         setError(err.response.data.message);
+    //     }
+    //     getExpense()
+    // }
 
-    const getExpense = async () => {
-        const response = await axios.get(`http://localhost:8080/api/get-expense/${userId}`);
-        setExpenses(response.data);
-        console.log(response.data);
-    };
+    // const getExpense = async () => {
+    //     const response = await axios.get(`http://localhost:8080/api/get-expense/${userId}`);
+    //     setExpenses(response.data);
+    //     console.log(response.data);
+    // };
 
-    const deleteExpense = async (id) => {
-        const response = await axios.delete(`http://localhost:8080/api/delete-expense/${id}`);
-        getExpense();
-    }
+    // const deleteExpense = async (id) => {
+    //     const response = await axios.delete(`http://localhost:8080/api/delete-expense/${id}`);
+    //     getExpense();
+    // }
 
-    const totalExpense = () => {
-        let totalExpense = 0;
-        expenses.forEach((expense) => {
-            totalExpense += expense.amount;
-        })
-        return totalExpense;
-    }
+    // const totalExpense = () => {
+    //     let totalExpense = 0;
+    //     expenses.forEach((expense) => {
+    //         totalExpense += expense.amount;
+    //     })
+    //     return totalExpense;
+    // }
 
-    useEffect(() => {
-        getExpense();
-    }, []);
+    // useEffect(() => {
+    //     getExpense();
+    // }, []);
 
     return(
         <section className='expense'>

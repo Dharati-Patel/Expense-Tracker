@@ -8,11 +8,13 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import PageLayout from "./layouts/PageLayout/PageLayout";
 import Income from './pages/Income/Income';
 import Expense from './pages/Expense/Expense';
+import { GlobalProvider } from './components/GlobalContext/GlobalContext'
 
 function App() {
 
   return (
     <>
+      <GlobalProvider>
       <BrowserRouter>
           <Routes>
             <Route path="/register" element={<Signup />}/>
@@ -24,6 +26,7 @@ function App() {
             </Route>  
           </Routes>
       </BrowserRouter>
+      </GlobalProvider>
     </>
   )
 }
