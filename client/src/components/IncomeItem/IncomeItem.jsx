@@ -79,6 +79,7 @@ const IncomeItem = ({
                             color={'#fff'}
                             iColor={'#fff'}
                             hColor={'rgba(34, 34, 96, 0.4)'}
+                            onClick={() => deleteItem(id)}
                         />
                     </div>
                 </div>

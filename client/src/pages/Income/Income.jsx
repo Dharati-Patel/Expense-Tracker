@@ -19,6 +19,7 @@ const Income = () => {
         } catch (err) {
             setError(err.response.data.message);
         }
+        getIncome()
     }
 
     const getIncome = async () => {
@@ -27,16 +28,21 @@ const Income = () => {
         console.log(response.data);
     };
 
+    const deleteIncome = async (id) => {
+        const response = await axios.delete(`http://localhost:8080/api/delete-income/${id}`);
+        getIncome();
+    }
+
     useEffect(() => {
         getIncome();
-    }, [incomes]);
+    }, []);
 
     return(
         <section className='income'>
             <h1 className='income__title'>Incomes</h1>
             <div className='income__content'>
                 <div className='form__conatiner'>
-                    <InputForm addIncome={addIncome} getIncome={getIncome} incomes={incomes}/>
+                    <InputForm addIncome={addIncome} getIncome={getIncome} incomes={incomes} deleteIncome={deleteIncome}/>
                 </div>
                 <div className='income__display'>
                     {incomes.map((income) => {
@@ -49,6 +55,7 @@ const Income = () => {
                             amount={amount} date={date}
                             category={category}
                             indicatorColor='green'
+                            deleteItem={deleteIncome}
                         />
                     })}
                 </div>
