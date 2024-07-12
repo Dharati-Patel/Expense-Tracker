@@ -55,13 +55,15 @@ const Expense = () => {
                 </div>
                 <div className='expense__display'>
                     {expenses.map((expense) => {
-                        const {_id, title, amount, date, category, description} = expense;
+                        const {_id, title, amount, date, category, description, type} = expense;
                         return <IncomeItem 
                             key={_id}
                             id={_id}
                             title={title}
                             description={description}
-                            amount={amount} date={date}
+                            amount={amount} 
+                            date={date}
+                            type={type}
                             category={category}
                             indicatorColor='green'
                             deleteItem={deleteExpense}

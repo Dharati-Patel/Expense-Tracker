@@ -1,4 +1,5 @@
 import Button from '../Button/Button';
+import DateFormate from '../DateFormate/DateFormate';
 import { calendar, comment, trash, dollar, money, freelance, stocks, users, card, piggy, book, food, medical, tv, clothing, circle } from '../Icons/Icons';
 import './IncomeItem.scss';
 
@@ -64,7 +65,7 @@ const IncomeItem = ({
                 <div className='incomeItem__inner'>
                     <div className='inner'>
                         <p className='inner__text'>{dollar} {amount}</p>
-                        <p className='inner__text'>{calendar} {date}</p>
+                        <p className='inner__text'>{calendar} <DateFormate date={date} /></p>
                         <p>
                             {comment}
                             {description}
