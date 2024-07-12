@@ -2,7 +2,7 @@ import './Button.scss';
 
 const Button = ({name, icon, onClick, bg, bpad, color, bRad}) => {
     return(
-        <section className='button' style={{
+        <button className='button' style={{
             background: bg,
             padding: bpad,
             borderRadius: bRad,
@@ -10,7 +10,7 @@ const Button = ({name, icon, onClick, bg, bpad, color, bRad}) => {
         }} onClick={onClick}>
             {icon}
             {name}
-        </section>
+        </button>
     );
 };
 

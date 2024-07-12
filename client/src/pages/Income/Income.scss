@@ -7,4 +7,13 @@
     &__title {
         color: $secondary_color;
     }
+
+    &__content {
+        display: flex;
+        gap: 2rem;
+    }
+
+    &__display {
+        flex: 1;
+    }
 }

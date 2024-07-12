@@ -3,7 +3,6 @@ import UserModel from '../models/UserModel.js';
 
 export const addIncome = async (req, res) => {
     const { title, amount, date, category, description, user } = req.body;
-
     try {
         const userId = await UserModel.findById(user);
         if (!userId) {
@@ -27,9 +26,9 @@ export const addIncome = async (req, res) => {
         if (!title || !lettersAndSpaces.test(title)) {
             return res.status(400).json({ message: 'Title is required and must not contain numbers or special characters!' });
         }
-        if (amount <= 0 || typeof amount !== 'number') {
-            return res.status(400).json({ message: 'Amount must be a positive number!' });
-        }
+        // if (amount <= 0 || typeof amount !== 'number') {
+        //     return res.status(400).json({ message: 'Amount must be a positive number!' });
+        // }
 
         await newIncome.save();
         res.status(200).json({ message: 'Income Added!', income: newIncome });
