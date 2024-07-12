@@ -63,7 +63,7 @@ const IncomeItem = ({
                 <h5 className='incomeItem__title'>{title}</h5>
                 <div className='incomeItem__inner'>
                     <div className='inner'>
-                        <p className='inner__text'>{dollar} 45</p>
+                        <p className='inner__text'>{dollar} {amount}</p>
                         <p className='inner__text'>{calendar} {date}</p>
                         <p>
                             {comment}

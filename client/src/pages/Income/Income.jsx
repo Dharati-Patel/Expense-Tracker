@@ -33,6 +33,14 @@ const Income = () => {
         getIncome();
     }
 
+    const totalIncome = () => {
+        let totalIncome = 0;
+        incomes.forEach((income) => {
+            totalIncome += income.amount;
+        })
+        return totalIncome;
+    }
+
     useEffect(() => {
         getIncome();
     }, []);
@@ -40,9 +48,10 @@ const Income = () => {
     return(
         <section className='income'>
             <h1 className='income__title'>Incomes</h1>
+            <h2 className='income__total'>Total Income: <span>${totalIncome()}</span></h2>
             <div className='income__content'>
                 <div className='form__conatiner'>
-                    <InputForm addIncome={addIncome} getIncome={getIncome} incomes={incomes} deleteIncome={deleteIncome}/>
+                    <InputForm addIncome={addIncome} getIncome={getIncome} incomes={incomes} deleteIncome={deleteIncome} totalIncome={totalIncome}/>
                 </div>
                 <div className='income__display'>
                     {incomes.map((income) => {
