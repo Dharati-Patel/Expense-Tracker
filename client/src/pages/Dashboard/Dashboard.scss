@@ -1,0 +1,16 @@
+@import '../../styles/partials/variables';
+
+.dashboard {
+    padding: 2rem 1.5rem;
+
+    &__title {
+        color: $primary_color;
+    }
+}
+
+h2 {
+    color: $primary_color;
+}
+p {
+    color: $primary_color;
+}

@@ -1,10 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import Income from '../../pages/Income/Income';
-import Expense from '../../pages/Expense/Expense';
-import Chart from '../Chart/Chart';
-
-// const BASE_URL = import.meta.env.VITE_API_URL;
 
 const GlobalContext = createContext();
 
@@ -12,7 +7,6 @@ const GlobalProvider = ({children}) => {
 
     const [incomes, setIncomes] = useState([]);
     const [expenses, setExpenses] = useState([]);
-    const [error, setError] = useState([null]);
 
     const userId = localStorage.getItem('userId');
 
@@ -49,8 +43,6 @@ const GlobalProvider = ({children}) => {
         getIncome();
     }, []);
 
-
-
     const addExpense = async (expense) => {
         try {
             const response = await axios.post('http://localhost:8080/api/add-expense', expense);
@@ -84,6 +76,10 @@ const GlobalProvider = ({children}) => {
         getExpense();
     }, []);
 
+    const totalBalance = () => {
+        return totalIncome() - totalExpense();
+    }
+
     return(
         <GlobalContext.Provider value={{
             addIncome,
@@ -95,17 +91,14 @@ const GlobalProvider = ({children}) => {
             getExpense,
             expenses,
             deleteExpense,
-            totalExpense
-        }
-         
-        }>
+            totalExpense,
+            totalBalance
+        }}>
             {children}
         </GlobalContext.Provider>
         
     );
 }
-
-//export default GlobalProvider;
 
 export const useGlobalContext = () => {
     return useContext(GlobalContext);

@@ -11,42 +11,6 @@ const BASE_URL = import.meta.env.VITE_API_URL;
 const Expense = () => {
     const {addExpense, getExpense, expenses, deleteExpense, totalExpense} = useGlobalContext();
     const [error, setError] = useState([null]);
-//    const [expenses, setExpenses] = useState([]);
-//     const [error, setError] = useState(null);
-//     const userId = localStorage.getItem('userId');
-
-    // const addExpense = async (expense) => {
-    //     try {
-    //         const response = await axios.post('http://localhost:8080/api/add-expense', expense);
-    //         console.log(response.data); 
-    //     } catch (err) {
-    //         setError(err.response.data.message);
-    //     }
-    //     getExpense()
-    // }
-
-    // const getExpense = async () => {
-    //     const response = await axios.get(`http://localhost:8080/api/get-expense/${userId}`);
-    //     setExpenses(response.data);
-    //     console.log(response.data);
-    // };
-
-    // const deleteExpense = async (id) => {
-    //     const response = await axios.delete(`http://localhost:8080/api/delete-expense/${id}`);
-    //     getExpense();
-    // }
-
-    // const totalExpense = () => {
-    //     let totalExpense = 0;
-    //     expenses.forEach((expense) => {
-    //         totalExpense += expense.amount;
-    //     })
-    //     return totalExpense;
-    // }
-
-    // useEffect(() => {
-    //     getExpense();
-    // }, []);
 
     return(
         <section className='expense'>
