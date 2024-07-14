@@ -44,7 +44,7 @@ Managing personal finances can be challenging without a systematic approach. Man
 
 - Frontend:
     - React
-    - TypeScript
+    - JavaScript
     - Chart.js (for line graph)
 
 - Backend: 
@@ -149,7 +149,7 @@ Managing personal finances can be challenging without a systematic approach. Man
 
 - Set up project repository and initialize project.
 - Implement user authentication (registration and login).
-- Design and develop the dashboard with summary data and line graph.
+- Design and develop the dashboard with summary data and line graph using Chart.js.
 - Develop income page with form and transaction history.
 - Develop expense page with form and transaction history.
 - Implement deletion functionality for transactions.

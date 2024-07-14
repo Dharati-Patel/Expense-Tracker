@@ -1,0 +1,27 @@
+.pagelayout {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    background-image: url('../../assets/Images/bg.jpg');
+    background-size: cover;
+}
+
+.navlayout {
+    margin: 2rem 1rem 2rem 2rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.mainlayout {
+    margin: 2rem 2rem 2rem 1rem;
+    flex: 1;
+    background: rgba(252, 246, 249, 0.78);
+    border: 3px solid #FFFFFF;
+    backdrop-filter: blur(4.5px);
+    border-radius: 32px;
+    overflow: auto;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+}
