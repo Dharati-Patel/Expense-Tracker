@@ -11,7 +11,6 @@ import {Chart as ChartJs,
         ArcElement,
 } from 'chart.js';
 import {Line} from 'react-chartjs-2';
-import DateFormate from '../DateFormate/DateFormate';
 import {useGlobalContext} from '../GlobalContext/GlobalContext';
 
 ChartJs.register(
@@ -28,11 +27,16 @@ ChartJs.register(
 const Chart = () => {
 
     const {incomes, expenses} = useGlobalContext();
-    console.log(incomes)
+    // console.log("Dharati" + incomes[0].date)
     const data = {
         labels: incomes.map((inc) => {
             const {date} = inc
-            return DateFormate(date)
+            const formatDate = new Date(date);
+            const day = String(formatDate.getUTCDate()).padStart(2, '0');
+            const month = String(formatDate.getUTCMonth() + 1).padStart(2, '0'); // Months are zero-based
+            const year = formatDate.getUTCFullYear();
+            const formattedDate = `${day}/${month}/${year}`;
+            return formattedDate;
         }),
 
         datasets: [

@@ -4,11 +4,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './ExpenseForm.scss';
 import Button from "../Button/Button";
 import { plus } from '../Icons/Icons';
-import axios from 'axios';
 
-const BASE_URL = import.meta.env.VITE_API_URL;
-
-const ExpenseForm = ({ addExpense, getExpense }) => {
+const ExpenseForm = ({ addExpense, getExpense, error }) => {
     const userId = localStorage.getItem('userId'); 
     const [inputState, setInputState] = useState({
         title: '',
@@ -40,6 +37,7 @@ const ExpenseForm = ({ addExpense, getExpense }) => {
 
     return(
         <form className='form__input' onSubmit={handleSubmit}>
+            {error && <p className='error'>{error}</p>}
             <div className='input'>
                 <input 
                     className='input__control'

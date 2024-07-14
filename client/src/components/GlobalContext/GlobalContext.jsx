@@ -7,15 +7,16 @@ const GlobalProvider = ({children}) => {
 
     const [incomes, setIncomes] = useState([]);
     const [expenses, setExpenses] = useState([]);
+    const [error, setError] = useState([null]);
 
     const userId = localStorage.getItem('userId');
 
     const addIncome = async (income) => {
         try {
             const response = await axios.post('http://localhost:8080/api/add-income', income);
-            console.log(response.data); 
         } catch (err) {
             setError(err.response.data.message);
+            console.log("Dharati " + err)
         }
         getIncome()
     }
@@ -23,7 +24,6 @@ const GlobalProvider = ({children}) => {
     const getIncome = async () => {
         const response = await axios.get(`http://localhost:8080/api/get-income/${userId}`);
         setIncomes(response.data);
-        console.log(response.data);
     };
 
     const deleteIncome = async (id) => {
@@ -46,7 +46,6 @@ const GlobalProvider = ({children}) => {
     const addExpense = async (expense) => {
         try {
             const response = await axios.post('http://localhost:8080/api/add-expense', expense);
-            console.log(response.data); 
         } catch (err) {
             setError(err.response.data.message);
         }
@@ -56,7 +55,6 @@ const GlobalProvider = ({children}) => {
     const getExpense = async () => {
         const response = await axios.get(`http://localhost:8080/api/get-expense/${userId}`);
         setExpenses(response.data);
-        console.log(response.data);
     };
 
     const deleteExpense = async (id) => {
@@ -80,6 +78,15 @@ const GlobalProvider = ({children}) => {
         return totalIncome() - totalExpense();
     }
 
+    const transactionHistory = () => {
+        const history = [...incomes, ...expenses];
+        history.sort((a, b) => {
+            return new Date(b.createdAt) - new Date(a.createdAt);
+        })
+
+        return history.slice(0, 6);
+    }
+
     return(
         <GlobalContext.Provider value={{
             addIncome,
@@ -92,7 +99,9 @@ const GlobalProvider = ({children}) => {
             expenses,
             deleteExpense,
             totalExpense,
-            totalBalance
+            totalBalance,
+            transactionHistory,
+            error
         }}>
             {children}
         </GlobalContext.Provider>
