@@ -5,7 +5,7 @@ import { signout } from "../Icons/Icons";
 import './Navigation.scss';
 
 const Navigation = ({active, setActive}) => {
-    
+
     return(
         <nav className="nav">
             <div className="nav__user">

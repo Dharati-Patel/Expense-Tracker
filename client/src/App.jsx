@@ -22,7 +22,7 @@ function App() {
             <Route element={<PageLayout />}>
               <Route path="/dashboard" element={<Dashboard />}/>
               <Route path="/income" element={<Income />}/>
-              <Route path="/expense" element={<Expense />}/>
+              <Route path="/expense" element={<Expense />}/> 
             </Route>  
           </Routes>
       </BrowserRouter>
