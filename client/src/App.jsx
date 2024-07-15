@@ -8,14 +8,13 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import PageLayout from "./layouts/PageLayout/PageLayout";
 import Income from './pages/Income/Income';
 import Expense from './pages/Expense/Expense';
-import { GlobalProvider } from './components/GlobalContext/GlobalContext'
+import GlobalContextWrapper from './components/GlobalContext/GlobalContextWrapper';
 
 function App() {
 
   return (
     <>
-      <GlobalProvider>
-      <BrowserRouter>
+     <GlobalContextWrapper>
           <Routes>
           <Route path="/" element={<Signup />}/>
             <Route path="/register" element={<Signup />}/>
@@ -24,10 +23,9 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />}/>
               <Route path="/income" element={<Income />}/>
               <Route path="/expense" element={<Expense />}/> 
-            </Route>  
+            </Route> 
           </Routes>
-      </BrowserRouter>
-      </GlobalProvider>
+      </GlobalContextWrapper>
     </>
   )
 }

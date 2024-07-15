@@ -66,7 +66,7 @@ const IncomeItem = ({
                     <div className='inner'>
                         <p className='inner__text'>{dollar} {amount}</p>
                         <p className='inner__text'>{calendar} <DateFormate date={date} /></p>
-                        <p>
+                        <p className='inner__text'>
                             {comment}
                             {description}
                         </p>
