@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../../assets/Images/Logo.png';
-import Logo2 from '../../assets/Images/Logo2.png';
-import Logo3 from '../../assets/Images/Logo3.png';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -19,6 +17,7 @@ const Login = () => {
             console.log(result);
             if (result.data.message === 'Success') {
                 localStorage.setItem('userId', result.data.userId);
+                localStorage.setItem('userName', result.data.userName);
                 navigate('/dashboard');
             }
         } catch (err) {
@@ -31,7 +30,7 @@ const Login = () => {
             <header className="login__header">
                 <div className="login__header-container">
                     <div className="login__brand">
-                        <img className="login__logo" src={Logo3} alt="SpendSavvy Logo" />
+                        <img className="login__logo" src={Logo} alt="SpendSavvy Logo" />
                         <h1 className="login__title">SpendSavvy</h1>
                     </div>
                     <nav className="login__nav">

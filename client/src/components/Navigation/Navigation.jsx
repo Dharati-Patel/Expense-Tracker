@@ -6,12 +6,14 @@ import './Navigation.scss';
 
 const Navigation = ({active, setActive}) => {
 
+    const userName = localStorage.getItem('userName');
+
     return(
         <nav className="nav">
             <div className="nav__user">
                 <img className="nav__img" src={avatar} alt="avatrat image"/>
                 <div className="nav_name">
-                    <h2 className="nav__name">Dharati</h2>
+                    <h2 className="nav__name">{userName}</h2>
                 </div>
             </div>    
             <ul className="nav__menu">

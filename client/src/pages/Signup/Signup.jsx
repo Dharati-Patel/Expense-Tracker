@@ -42,7 +42,7 @@ const Signup = () => {
                 <div className="signup__info">
                     <h2 className="signup__info-title">Welcome to SpendSavvy</h2>
                     <p className="signup__info-text">
-                        "Tracking every penny to pave the way to financial freedom."
+                    "Track your expenses effortlessly and manage your finances wisely with SpendSavvy."
                     </p>
                 </div>
                 <div className="signup__separator"></div>
