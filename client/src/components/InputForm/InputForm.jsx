@@ -4,9 +4,12 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './InputForm.scss';
 import Button from "../Button/Button";
 import { plus } from '../Icons/Icons';
+import {useGlobalContext} from '../GlobalContext/GlobalContext';
 
-const InputForm = ({ addIncome, getIncome, error }) => {
+const InputForm = ({ addIncome, getIncome }) => {
     const userId = localStorage.getItem('userId'); 
+
+    const {error} = useGlobalContext();
     const [inputState, setInputState] = useState({
         title: '',
         amount: '',
@@ -94,6 +97,7 @@ const InputForm = ({ addIncome, getIncome, error }) => {
                 />
             </div>
         </form>
+       
     );
 };
 

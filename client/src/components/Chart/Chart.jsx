@@ -27,7 +27,7 @@ ChartJs.register(
 const Chart = () => {
 
     const {incomes, expenses} = useGlobalContext();
-    // console.log("Dharati" + incomes[0].date)
+
     const data = {
         labels: incomes.map((inc) => {
             const {date} = inc

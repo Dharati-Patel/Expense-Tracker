@@ -17,7 +17,6 @@ const GlobalProvider = ({ children }) => {
       await axios.post('http://localhost:8080/api/add-income', income);
     } catch (err) {
       setError(err.response.data.message);
-      console.log("Dharati " + err);
     }
     getIncome();
   };

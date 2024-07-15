@@ -8,20 +8,20 @@ import Logo from '../../assets/Images/Logo.png';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const result = await axios.post('http://localhost:8080/api/login', { email, password });
-            console.log(result);
             if (result.data.message === 'Success') {
                 localStorage.setItem('userId', result.data.userId);
                 localStorage.setItem('userName', result.data.userName);
                 navigate('/dashboard');
             }
         } catch (err) {
-            console.log(err);
+            setError(err.response.data.message);
         }
     }
 
@@ -59,6 +59,7 @@ const Login = () => {
                             <input className="login__input" type="password" id="password" name="password" placeholder='Enter password' onChange={(e) => setPassword(e.target.value)} required />
                         </div>
                         <button className="login__button" type="submit">Login</button>
+                        {error && <p className='login__error'>{error}</p>}
                     </form>
                     <Link to='/register' className="login__signup-link">Don't have an account?</Link>
                 </div>

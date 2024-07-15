@@ -7,7 +7,7 @@ import Expense from '../../pages/Expense/Expense';
 
 const PageLayout = () => {
     const [active, setActive] = useState(1);
-
+    
     const displayData = () => {
         switch(active) {
             case 1:

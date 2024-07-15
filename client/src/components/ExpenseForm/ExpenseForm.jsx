@@ -4,9 +4,12 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './ExpenseForm.scss';
 import Button from "../Button/Button";
 import { plus } from '../Icons/Icons';
+import {useGlobalContext} from '../GlobalContext/GlobalContext';
 
-const ExpenseForm = ({ addExpense, getExpense, error }) => {
+const ExpenseForm = ({ addExpense, getExpense }) => {
+
     const userId = localStorage.getItem('userId'); 
+    const {error} = useGlobalContext();
     const [inputState, setInputState] = useState({
         title: '',
         amount: '',
