@@ -3,6 +3,7 @@ import './Signup.scss';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Logo from '../../assets/Images/Logo.png';
 
 const api_url = import.meta.env.VITE_API_URL;
 
@@ -15,7 +16,7 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const result = await axios.post('http://localhost:8080/api/register', { name, email, password });
+            const result = await axios.post('http://localhost:8080/api/register', { name, email, password }, { name, email, password });
             console.log(result);
             navigate('/login');
         } catch (err) {
@@ -27,11 +28,13 @@ const Signup = () => {
         <div className="signup">
             <header className="signup__header">
                 <div className="signup__header-container">
-                    <img className="signup__logo" src='' alt="SpendSavvy Logo" />
-                    <h1 className="signup__title">SpendSavvy</h1>
+                    <div className="signup__brand">
+                        <img className="signup__logo" src={Logo} alt="SpendSavvy Logo" />
+                        <h1 className="signup__title">SpendSavvy</h1>
+                    </div>
                     <nav className="signup__nav">
-                        <Link to='/login' className="signup__link">Sign In</Link>
-                        <Link to='/register' className="signup__link">Sign Up</Link>
+                        <Link to='/login' className="signup__link">SignIn</Link>
+                        <Link to='/register' className="signup__link">SignUp</Link>
                     </nav>
                 </div>
             </header>

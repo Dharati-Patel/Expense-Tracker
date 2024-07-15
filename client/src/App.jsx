@@ -17,6 +17,7 @@ function App() {
       <GlobalProvider>
       <BrowserRouter>
           <Routes>
+          <Route path="/" element={<Signup />}/>
             <Route path="/register" element={<Signup />}/>
             <Route path="/login" element={<Login />}/>
             <Route element={<PageLayout />}>
