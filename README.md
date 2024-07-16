@@ -108,7 +108,13 @@ _Below is the instruction on how to get started._
    ```sh
    npm run dev
    ```
+10. Only responsive for desktop breakpoint 1280 px and more. 
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Responsive Design
+
+The SpendSavvy web application is optimized for desktop screens with a viewport width of 1280 pixels or more.
 
 ### Usage
 
