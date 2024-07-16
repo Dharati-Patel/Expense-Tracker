@@ -9,7 +9,7 @@ userRouter.post('/login', async (req, res) => {
         const user = await UserModel.findOne({ email: email });
         if (user) {
             if (user.password === password) {
-                res.json({ message: "Success", userId: user.id });
+                res.json({ message: "Success", userId: user.id, userName: user.name });
             } else {
                 res.json("The password is incorrect!");
             }

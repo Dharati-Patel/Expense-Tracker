@@ -3,23 +3,25 @@ import './Login.scss';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Logo from '../../assets/Images/Logo.png';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const result = await axios.post('http://localhost:8080/api/login', { email, password });
-            console.log(result);
             if (result.data.message === 'Success') {
                 localStorage.setItem('userId', result.data.userId);
+                localStorage.setItem('userName', result.data.userName);
                 navigate('/dashboard');
             }
         } catch (err) {
-            console.log(err);
+            setError(err.response.data.message);
         }
     }
 
@@ -27,7 +29,10 @@ const Login = () => {
         <div className="login">
             <header className="login__header">
                 <div className="login__header-container">
-                    <h1 className="login__title">SpendSavvy</h1>
+                    <div className="login__brand">
+                        <img className="login__logo" src={Logo} alt="SpendSavvy Logo" />
+                        <h1 className="login__title">SpendSavvy</h1>
+                    </div>
                     <nav className="login__nav">
                         <Link to='/login' className="login__link">Sign In</Link>
                         <Link to='/register' className="login__link">Sign Up</Link>
@@ -54,6 +59,7 @@ const Login = () => {
                             <input className="login__input" type="password" id="password" name="password" placeholder='Enter password' onChange={(e) => setPassword(e.target.value)} required />
                         </div>
                         <button className="login__button" type="submit">Login</button>
+                        {error && <p className='login__error'>{error}</p>}
                     </form>
                     <Link to='/register' className="login__signup-link">Don't have an account?</Link>
                 </div>
@@ -61,4 +67,5 @@ const Login = () => {
         </div>
     );
 }
+
 export default Login;

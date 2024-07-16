@@ -1,17 +1,8 @@
 import './Chart.scss';
 import React from 'react';
-import {Chart as ChartJs, 
-        CategoryScale,
-        LinearScale,
-        PointElement,
-        LineElement,
-        Title,
-        Tooltip,
-        Legend,
-        ArcElement,
-} from 'chart.js';
-import {Line} from 'react-chartjs-2';
-import {useGlobalContext} from '../GlobalContext/GlobalContext';
+import { Chart as ChartJs, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
+import { Line } from 'react-chartjs-2';
+import { useGlobalContext } from '../GlobalContext/GlobalContext';
 
 ChartJs.register(
     CategoryScale,
@@ -22,52 +13,56 @@ ChartJs.register(
     Tooltip,
     Legend,
     ArcElement
-)
+);
 
 const Chart = () => {
+    const { incomes, expenses } = useGlobalContext();
 
-    const {incomes, expenses} = useGlobalContext();
-    // console.log("Dharati" + incomes[0].date)
+    const formatDate = (date) => {
+        const d = new Date(date);
+        const day = String(d.getUTCDate()).padStart(2, '0');
+        const month = String(d.getUTCMonth() + 1).padStart(2, '0'); 
+        const year = d.getUTCFullYear();
+        return `${day}/${month}/${year}`;
+    };
+
+    const allDates = [...new Set([...incomes, ...expenses].map((item) => formatDate(item.date)))].sort((a, b) => new Date(a.split('/').reverse().join('-')) - new Date(b.split('/').reverse().join('-')));
+
+    const incomeData = allDates.map(date => {
+        const income = incomes.find(inc => formatDate(inc.date) === date);
+        return income ? income.amount : 0;
+    });
+
+    const expenseData = allDates.map(date => {
+        const expense = expenses.find(exp => formatDate(exp.date) === date);
+        return expense ? expense.amount : 0;
+    });
+
     const data = {
-        labels: incomes.map((inc) => {
-            const {date} = inc
-            const formatDate = new Date(date);
-            const day = String(formatDate.getUTCDate()).padStart(2, '0');
-            const month = String(formatDate.getUTCMonth() + 1).padStart(2, '0'); // Months are zero-based
-            const year = formatDate.getUTCFullYear();
-            const formattedDate = `${day}/${month}/${year}`;
-            return formattedDate;
-        }),
-
+        labels: allDates,
         datasets: [
             {
                 label: 'Income',
-                data: [
-                    ...incomes.map((income) => {
-                        const {amount} = income
-                        return amount
-                    })
-                ],
-                backgroundColor: 'green',
+                data: incomeData,
+                backgroundColor: 'rgba(0, 255, 0, 0.5)',
+                borderColor: 'rgba(0, 255, 0, 1)',
+                fill: false,
                 tension: 0.2
             },
             {
                 label: 'Expense',
-                data: [
-                    ...expenses.map((expense) => {
-                        const {amount} = expense
-                        return amount
-                    })
-                ],
-                backgroundColor: 'red',
+                data: expenseData,
+                backgroundColor: 'rgba(255, 0, 0, 0.5)',
+                borderColor: 'rgba(255, 0, 0, 1)',
+                fill: false,
                 tension: 0.2
             }
         ]
-    }
+    };
 
-    return(
+    return (
         <div className='chart'>
-            <Line data={data}/>
+            <Line data={data} />
         </div>
     );
 };
