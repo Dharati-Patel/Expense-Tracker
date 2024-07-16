@@ -1,7 +1,50 @@
-# Project Title
-SpendSavvy
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/Dharati-Patel/Expense-Tracker">
+    <img src="./client/src/assets/Images/Logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-## Overview
+  <h3 align="center">SpendSavvy</h3>
+
+  <p align="center">
+    An intuitive expense tracking application to help you manage your finances!
+    <br />
+    <a href="https://github.com/Dharati-Patel/Expense-Tracker"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/Dharati-Patel/Expense-Tracker">View Demo</a>
+   
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+![](mockup/DashboardExample.png)
 
 SpendSavvy is a user-friendly application designed to help individuals track their income and expenses. It provides an intuitive interface for users to record, view, and manage their financial transactions, offering insights into their financial health through various visualizations and summaries.
 
@@ -9,155 +52,139 @@ SpendSavvy is a user-friendly application designed to help individuals track the
 
 Managing personal finances can be challenging without a systematic approach. Many individuals struggle with tracking their income and expenses, leading to poor financial decisions and budgeting issues. Traditional methods like spreadsheets or manual logging are time-consuming and prone to errors. An efficient and automated expense tracking app addresses these pain points by providing a centralized platform for financial management.
 
-### User Profile
 
-- Primary Users: Individuals who want to manage their personal finances effectively.
-- Secondary Users: Small business owners needing to track business expenses and income.
-- Usage Context: Users will log in to the app to record their income and expenses, view financial summaries, and analyze their spending patterns. Special considerations include ensuring data security, ease of use, and mobile accessibility.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Features
+### Built With
 
-1. User Authentication: Users can register, log in, and manage their profiles securely.
+* React
+* Node.js
+* Express
+* MongoDB
+* Chart.js
 
-2. Dashboard: A comprehensive overview including:
-    - Line graph for income vs. expense comparison.
-    - Total income value.
-    - Total expense value.
-    - Total balance value.
-    - Recent transaction history.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-3. Income Management:
-    - Form to add new income (fields: name, amount, date, category, description).
-    - Transaction history for income.
-    - Ability to delete specific income entries.
+<!-- GETTING STARTED -->
+## Getting Started
 
-4. Expense Management:
-    - Form to add new expenses (fields: name, amount, date, category, description).
-    - Transaction history for expenses.
-    - Ability to delete specific expense entries.
+### Prerequisites
 
-5. Data Visualization: Graphical representation of financial data to help users understand their financial status at a glance.
+### Installation
 
-## Implementation
+_Below is the instruction on how to get started._
 
-### Tech Stack
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Dharati-Patel/Expense-Tracker.git
+   ```
+2. Create [MongoDB Database](https://www.mongodb.com/resources/languages/nodejs-database)
+3. Set up Client Environment (.env file)
+    ```sh
+   VITE_API_URL=http://localhost:your_server_port/api
+   ``` 
+4. Set up Server Environment (.env file)
+   ```sh
+   PORT=port_number
+   MONGO_URL=mongodb://database_connection_url
+   ``` 
+5. Navigate to Client Directory
+   ```sh
+   cd client
+   ``` 
+6. Install NPM packages
+   ```sh
+   npm install
+   ```
+7. Navigate to Server Directory
+   ```sh
+   cd server
+   ``` 
+8. Install NPM packages
+   ```sh
+   npm install
+   ```
+9. To run the application go to client and server folder and write
+   ```sh
+   npm run dev
+   ```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- Frontend:
-    - React
-    - JavaScript
-    - Chart.js (for line graph)
+### Usage
 
-- Backend: 
-    - Express
+#### 1. Recording Transactions
 
-- Client libraries: 
-    - react
-    - react-router
-    - axios
+Use SpendSavvy to effortlessly record your income and expenses. Simply navigate to the Income or Expense page, fill in the details, and click submit. Below is an example of adding a new expense:
 
-- Server libraries:
-    - MongoDB
-    - express
-    - bcrypt for password hashing
+1. Navigate to the Expense page.
+2. Fill in the expense details: name, amount, date, category, and description.
+3. Click 'Add Expense' to record the transaction.
 
+![Expense Page](mockup/ExpenseExample.png)
 
-### APIs
+#### 2. Viewing Financial Summaries
 
-- No external APIs will be used for the first sprint
+Utilize the Dashboard to gain insights into your financial health with summarized data and visualizations:
 
-### Sitemap
+1. Visit the Dashboard to see an overview of your financial status.
+2. View the line graph comparing your income versus expenses over time.
+3. Check total income, total expenses, and your current balance at a glance.
 
-- Login Page: User authentication.
-- Registration Page: New user registration.
-- Dashboard Page: Overview of financial data (graphs, summaries, recent transactions).
-- Income Page: Form to add income, view and manage income transactions.
-- Expense Page: Form to add expenses, view and manage expense transactions.
+![Dashboard Page](mockup/DashboardExample.png)
 
+#### 3. Managing Transactions
 
-### Mockups
+Efficiently manage your financial transactions with SpendSavvy's intuitive interface:
 
-#### Login Page
-![](mockup/Login.png)
+1. Use the transaction history on the Income and Expense pages to view past entries.
+2. Delete specific transactions as needed for accurate financial tracking.
 
-#### Registration Page
-![](mockup/Registration.png)
+### Additional Resources
 
-#### Dasboard Page
-![](mockup/Dashboard.png)
+For more examples, please refer to the[Documentation](#) section of SpendSavvy.
 
-#### Income Page
-![](mockup/Income.png)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-#### Expense Page
-![](mockup/Expense.png)
+## Contributing
 
-### Data
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
-- user table
+If you have a suggestion that would make SpendSavvy better, please follow these steps:
 
-    - id Primary key, unique user ID
-    - username	
-    - email	
-    - password	
-    - created_at	
+1. Fork the repository and create your feature branch (`git checkout -b feature/AmazingFeature`).
+2. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+3. Push to the branch (`git push origin feature/AmazingFeature`).
+4. Open a pull request.
 
-- Income table
+Alternatively, you can simply open an issue with the tag "enhancement" if you have ideas or suggestions for improvements.
 
-    - id Primary key, unique income ID
-    - user_id Foreign key, references Users.id
-    - name	
-    - amount	
-    - date	
-    - category	
-    - description	
-    - created_at	
+Don't forget to give the project a star if you find it useful! Thanks for contributing to SpendSavvy!
 
-- Expense table
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-    - id Primary key, unique expense ID
-    - user_id Foreign key, references Users.id
-    - name	
-    - amount	
-    - date	
-    - category	
-    - description	
-    - created_at
+<!-- CONTACT -->
+## Contact
 
-### Data Visualization
+Dhaarti Patel - [LinkedIn](www.linkedin.com/in/dharti-patel1) 
 
-- Chart.js will be used to create a line graph for income vs. expense comparison on the dashboard.
+Project Link: [https://github.com/Dharati-Patel/Expense-Tracker](https://github.com/Dharati-Patel/Expense-Tracker)
 
-### Endpoints
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- User Endpoints:
-    - POST /api/register – Register a new user.
-    - POST /api/login – Authenticate a user.
+## Acknowledgments
 
-- Transaction Endpoints:
-    - POST /api/income – Add new income.
-    - GET /api/income – Get user income transactions.
-    - DELETE /api/income/:id – Delete specific income.
-    - POST /api/expense – Add new expense.
-    - GET /api/expense – Get user expense transactions.
-    - DELETE /api/expense/:id – Delete specific expense.
+I would like to acknowledge the following resources that have been instrumental in the development of SpendSavvy:
 
-### Auth
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
+- [Express](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js.
+- [MongoDB](https://www.mongodb.com/) - A general-purpose, document-based, distributed database.
+- [Chart.js](https://www.chartjs.org/) - Simple yet flexible JavaScript charting for designers & developers.
+- [dotenv](https://www.npmjs.com/package/dotenv) - A zero-dependency module that loads environment variables from a .env file into process.env.
+- [Axios](https://axios-http.com/) - Promise-based HTTP client for the browser and Node.js.
+- [SCSS](https://sass-lang.com/) - Syntactically Awesome Style Sheets, a CSS extension language.
+- [Git](https://git-scm.com/) - Free and open-source distributed version control system.
+- [GitHub](https://github.com/) - Platform for hosting and version control of software using Git.
 
-- User authentication for the Expense Tracker app is implemented using MongoDB for data storage and JSON Web Tokens (JWT) for secure user sessions. 
+These resources have provided essential functionalities, libraries, and tools that have significantly contributed to the development and functionality of SpendSavvy.
 
-## Roadmap
-
-- Set up project repository and initialize project.
-- Implement user authentication (registration and login).
-- Design and develop the dashboard with summary data and line graph using Chart.js.
-- Develop income page with form and transaction history.
-- Develop expense page with form and transaction history.
-- Implement deletion functionality for transactions.
-- Integrate data visualization (line graphs).
-- Perform testing and debugging.
-- Finalize UI/UX design and polish the interface.
-
-## Nice-to-haves
-
-- Edit transaction functionality.
-- Exporting transaction data to CSV or other formats.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
