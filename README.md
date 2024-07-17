@@ -81,7 +81,7 @@ _Below is the instruction on how to get started._
 2. Create [MongoDB Database](https://www.mongodb.com/resources/languages/nodejs-database)
 3. Set up Client Environment (.env file)
     ```sh
-   VITE_API_URL=http://localhost:your_server_port/api
+   VITE_API_URL=http://localhost:your_server_port
    ``` 
 4. Set up Server Environment (.env file)
    ```sh
@@ -108,7 +108,6 @@ _Below is the instruction on how to get started._
    ```sh
    npm run dev
    ```
-10. Only responsive for desktop breakpoint 1280 px and more. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
